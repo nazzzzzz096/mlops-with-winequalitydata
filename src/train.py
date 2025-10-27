@@ -10,7 +10,7 @@ import pandas as pd
 os.makedirs('models',exist_ok=True)
 mlflow.set_experiment("wine-quality_test")
 
-df=pd.read_csv("data\wineQT.csv")
+df=pd.read_csv("data/wineQT.csv")
 
 df['good']=(df['quality']>0).astype(int)
 x=df.drop(columns=['good,quality'],axis=1)
