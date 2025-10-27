@@ -22,4 +22,10 @@ jobs:
 
        - name: train model with mlflow
          run: python src/train.py
-
+  
+  docker:
+    needs: test-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build -t wine-api .

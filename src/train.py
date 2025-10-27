@@ -31,6 +31,6 @@ with mlflow.start_run():
 
     mlflow.log_param('n_estimaors',estimators)
     mlflow.log_metric('accuracy',accuracy)
-    mlflow.sklearn.log_model(model,artifact_path="models")
+    mlflow.sklearn.log_model(model,artifact_path="models",registered_model_name="wine-quality-data")
 
     
