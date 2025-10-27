@@ -2,7 +2,7 @@ name: wine-data-mlops-train
 
 on:
   push:
-    braches: ['main']
+    branches: ['main']
 
 jobs:
   train-wine-data:
@@ -13,7 +13,7 @@ jobs:
          uses: actions/checkout@v3
 
        - name: Python dependency
-         uses: actions/setup-python@v3
+         uses: actions/setup-python@v4
          with:
             python-version: "3.12"
 
@@ -23,4 +23,3 @@ jobs:
        - name: train model with mlflow
          runs: python src/train.py
 
-         
