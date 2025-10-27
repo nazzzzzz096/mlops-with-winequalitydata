@@ -12,8 +12,8 @@ mlflow.set_experiment("wine-quality_test")
 
 df=pd.read_csv("data/wineQT.csv")
 
-df['good']=(df['quality']>0).astype(int)
-x=df.drop(columns=['good,quality'],axis=1)
+df['good']=(df['quality']>=6).astype(int)
+x=df.drop(['good','quality'],axis=1)
 y=df['good']
 
 x_train,x_test,y_train,y_test=train_test_split(x,y,text_size=0.2,random_state=42)
