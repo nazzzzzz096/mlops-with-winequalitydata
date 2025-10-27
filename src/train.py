@@ -10,7 +10,7 @@ import pandas as pd
 os.makedirs('models',exist_ok=True)
 mlflow.set_experiment("wine-quality_test")
 
-df=pd.read_csv("data/WineQT.csv")
+df=pd.read_csv("data\wineQT.csv")
 
 df['good']=(df['quality']>0).astype(int)
 x=df.drop(columns=['good,quality'],axis=1)
@@ -32,5 +32,5 @@ with mlflow.start_run():
     mlflow.log_param('n_estimaors',estimators)
     mlflow.log_metric('accuracy',accuracy)
     mlflow.sklearn.log_model(model,artifact_path="models")
-    
+
     
