@@ -1,0 +1,26 @@
+name: wine-data-mlops-train
+
+on:
+  push:
+    braches: ['main']
+
+jobs:
+  train-wine-data:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Checkout repository
+         uses: actions/checkout@v3
+
+       - name: Python dependency
+         uses: actions/setup-python@v3
+         with:
+            python-version: "3.12"
+
+       - name: Install requirements
+         runs: pip install -r requirements.txt
+
+       - name: train model with mlflow
+         runs: python src/train.py
+
+         

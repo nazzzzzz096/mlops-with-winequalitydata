@@ -24,4 +24,13 @@ with mlflow.start_run():
     model.fit(x_train,y_train)
 
     y_pred=model.predict(x_test)
+
+    accuracy=accuracy_score(y_test,y_pred)
+
+    print(f'accuracy{accuracy}')
+
+    mlflow.log_param('n_estimaors',estimators)
+    mlflow.log_metric('accuracy',accuracy)
+    mlflow.sklearn.log_model(model,artifact_path="models")
+    
     
